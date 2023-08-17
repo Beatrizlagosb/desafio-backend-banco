@@ -1,15 +1,21 @@
 # Desafio Backend Conta Bancária
 
-## API de Bancos <a href="https://cubos.academy/" target="_blank">Cubos Academy</a>
+## API de Bancos 🖥️ <a href="https://cubos.academy/" target="_blank">Cubos Academy</a>
 
 Esta é uma API simples para gerenciar contas bancárias, transações e saldos. Ela fornece endpoints para criar contas, realizar transações como depósitos, saques e transferências, e obter informações da conta.
 
 ## Nota
-Esteja ciente de que este projeto pode não incluir verificações elaboradas de entrada e checagens de segurança devido aos requisitos específicos do exercício e como parte do processo de avaliação da <a href="https://cubos.academy/" target="_blank">Cubos Academy</a>. Como este projeto pode ser parte de um exercício de aprendizado, o foco pode ter sido mais em demonstrar habilidades de codificação do que em implementar um aplicativo pronto para produção.
+Esteja ciente de que este projeto pode não incluir verificações elaboradas de entrada e checagens de segurança devido aos requisitos específicos do exercício e como parte do processo de avaliação da <a href="https://cubos.academy/" target="_blank">Cubos Academy</a> durante o curso de Desenvolvimento de Software Backend. Como este projeto pode ser parte de um exercício de aprendizado, o foco pode ter sido mais em demonstrar habilidades de codificação do que em implementar um aplicativo pronto para produção.
 
 Além disso, o banco de dados usado neste projeto é uma representação fictícia e não é escrito com funções assíncronas. Essa escolha de design está alinhada com a intenção do desafio de excluir aspectos de persistência de dados e focar nas funcionalidades principais do aplicativo.
 
-## Instalação
+## Instalação ⚙️
+
+**Pré-requisitos:**
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 1. Clone este repositório para sua máquina local.
 2. Navegue até o diretório do projeto.
@@ -31,13 +37,13 @@ npm run start
 
 ## Endpoints
 
-### Listar contas bancárias
+### - Listar contas bancárias
 
 **GET** `/contas`
 
 Esse endpoint deverá listar todas as contas bancárias existentes. Requer a senha no parâmetro URL. Exemplo: /contas?senha_banco=Cubos123Bank
 
-### Criar conta bancária
+### - Criar conta bancária
 
 **POST** `/contas`
 
@@ -52,7 +58,7 @@ Esse endpoint deverá criar uma conta bancária, onde será gerado um número ú
     -   email
     -   senha
 
-### Atualizar os dados do usuário da conta bancária
+### - Atualizar os dados do usuário da conta bancária
 
 **PUT** `/contas/:numeroConta/usuario`
 
@@ -67,13 +73,13 @@ Esse endpoint deverá atualizar apenas os dados do usuário de uma conta bancár
     -   email
     -   senha
 
-### Excluir uma conta bancária
+### - Excluir uma conta bancária
 
 **DELETE** `/contas/:numeroConta`
 
 Esse endpoint deve excluir uma conta bancária existente. Requer o número da conta no parâmetro URL.
 
-### Depósitar em uma conta bancária
+### - Depósitar em uma conta bancária
 
 **POST** `/transacoes/depositar`
 
@@ -84,7 +90,7 @@ Esse endpoint deverá somar o valor do depósito ao saldo de uma conta válida e
     -   numero_conta
     -   valor
 
-### Sacar de uma conta bancária
+### - Sacar de uma conta bancária
 
 **POST** `/transacoes/sacar`
 
@@ -96,7 +102,7 @@ Esse endpoint deverá realizar o saque de um valor em uma determinada conta banc
     -   valor
     -   senha
 
-### Transferir valores entre contas bancárias
+### - Transferir valores entre contas bancárias
 
 **POST** `/transacoes/transferir`
 
@@ -109,7 +115,7 @@ Esse endpoint deverá permitir a transferência de recursos (dinheiro) de uma co
     -   valor
     -   senha
 
-### Consultar saldo da conta bancária
+### - Consultar saldo da conta bancária
 
 **GET** `/contas/saldo`
 
@@ -120,7 +126,7 @@ Esse endpoint deverá retornar o saldo de uma conta bancária. Requer o número 
     -   numero_conta
     -   senha
 
-### Emitir extrato bancário
+### - Emitir extrato bancário
 
 **GET** `/contas/extrato`
 
@@ -135,6 +141,10 @@ Esse endpoint deverá listar as transações realizadas de uma conta específica
 
 Para garantir o acesso seguro a determinados endpoints, um middleware é implementado para verificar o acesso usando a senha do banco. Esta senha deve ser fornecida como um parâmetro de consulta.
 
-### Contribuidores
+### Contribuidores 💪
 
 - Beatriz Lago
+
+### Licença 📝
+
+Feito com ❤️ por Beatriz Lago. 👋🏽 [Entre em contato!](https://www.linkedin.com/in/beatrizlagosb/)
