@@ -146,11 +146,11 @@ Para garantir o acesso seguro a determinados endpoints, um middleware é impleme
 
 Listar Contas Bancárias
 
-![Foto](3.png)
+![Foto](./pictures/3.png)
 
 Extrato Bancário
 
-![Foto](1.png)
+![Foto](./pictures/1.png)
 
 ### Contribuidores 💪
 
