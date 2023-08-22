@@ -1,5 +1,6 @@
 const express = require('express');
-const { listarContasBancarias, criarContaBancaria, atualizarUsuario, excluirConta, depositar, sacar, transferir, saldo, extrato } = require('./controladores/contas');
+const { listarContasBancarias, criarContaBancaria, atualizarUsuario, excluirConta, saldo, extrato } = require('./controladores/contas');
+const { depositar, sacar, transferir } = require('./controladores/transacoes');
 const { validarSenha, validarConta, validarID, atualizarConta } = require('./intermediarios');
 
 const rotas = express();
