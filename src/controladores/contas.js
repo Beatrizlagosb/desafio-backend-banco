@@ -1,4 +1,5 @@
 let { contas, depositos, saques, transferencias } = require(`../dados/contas`);
+const { format } = require('date-fns');
 let identificadorDaConta = 1;
 
 // Listar contas bancárias
@@ -66,7 +67,6 @@ const excluirConta = (req, res) => {
 //Depósitar em uma conta bancária
 const depositar = (req, res) => {
     const { numero_conta, valor } = req.body;
-    let date = (new Date());
 
     if (isNaN(Number(numero_conta))) {
         return res.status(400).json({ mensagem: `O número da conta deve ser um número válido.` });
@@ -85,18 +85,8 @@ const depositar = (req, res) => {
     }
 
     //Data do depósito
-    const formatarData = (date) => {
-        const dia = String(date.getDate()).padStart(2, '0');
-        const mes = String(date.getMonth() + 1).padStart(2, '0');
-        const ano = String(date.getFullYear());
-        const hora = String(date.getHours()).padStart(2, '0');
-        const minuto = String(date.getMinutes()).padStart(2, '0');
-        const segundo = String(date.getSeconds()).padStart(2, '0');
 
-        return `${ano}-${mes}-${dia} ${hora}:${minuto}:${segundo}`;
-    }
-
-    const dataDeposito = formatarData(date)
+    const dataDeposito = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
 
     //Realizando o depósito
     conta.saldo += valor;
@@ -115,7 +105,6 @@ const depositar = (req, res) => {
 //Sacar de uma conta bancária
 const sacar = (req, res) => {
     const { numero_conta, valor, senha } = req.body;
-    let date = (new Date());
 
     if (isNaN(Number(numero_conta))) {
         return res.status(400).json({ mensagem: `O número da conta deve ser um número válido.` });
@@ -138,18 +127,8 @@ const sacar = (req, res) => {
     }
 
     //Data do depósito
-    const formatarData = (date) => {
-        const dia = String(date.getDate()).padStart(2, '0');
-        const mes = String(date.getMonth() + 1).padStart(2, '0');
-        const ano = String(date.getFullYear());
-        const hora = String(date.getHours()).padStart(2, '0');
-        const minuto = String(date.getMinutes()).padStart(2, '0');
-        const segundo = String(date.getSeconds()).padStart(2, '0');
 
-        return `${ano}-${mes}-${dia} ${hora}:${minuto}:${segundo}`;
-    }
-
-    const dataSaque = formatarData(date)
+    const dataSaque = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
 
     //Realizando o saque
     if (valor <= 0 || valor > conta.saldo) {
@@ -172,7 +151,6 @@ const sacar = (req, res) => {
 //Transferir valores entre contas bancárias
 const transferir = (req, res) => {
     const { numero_conta_origem, numero_conta_destino, valor, senha } = req.body;
-    let date = (new Date());
 
     //Numero conta de origem
     if (isNaN(Number(numero_conta_origem))) {
@@ -203,18 +181,8 @@ const transferir = (req, res) => {
     }
 
     //Data do depósito
-    const formatarData = (date) => {
-        const dia = String(date.getDate()).padStart(2, '0');
-        const mes = String(date.getMonth() + 1).padStart(2, '0');
-        const ano = String(date.getFullYear());
-        const hora = String(date.getHours()).padStart(2, '0');
-        const minuto = String(date.getMinutes()).padStart(2, '0');
-        const segundo = String(date.getSeconds()).padStart(2, '0');
 
-        return `${ano}-${mes}-${dia} ${hora}:${minuto}:${segundo}`;
-    }
-
-    const dataTransferencia = formatarData(date)
+    const dataTransferencia = format(new Date(), 'yyyy-MM-dd HH:mm:ss');
 
     //Realizando a transferencia
     if (valor <= 0 || valor > contaOrigem.saldo) {
